@@ -10,7 +10,7 @@ $(function () {
     - timer entry modus
     - cookie (or localStorage)
     - pluralización?
-    - semanas?
+    - weeks support
     
     */
     /*

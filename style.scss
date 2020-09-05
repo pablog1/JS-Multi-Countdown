@@ -20,6 +20,14 @@ h1 {
 }
 
 .countdown {
+    &.simple-bar{
+        background-color: #9cdcac;
+        margin: 20px;
+        padding: 3px 21px;
+        border-radius: 10px;
+        text-align: center;
+        font-weight: 700;
+    }
     &.show {
         text-align: center;
         background-color: #e4e4e4;
