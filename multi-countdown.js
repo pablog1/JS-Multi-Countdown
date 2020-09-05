@@ -9,7 +9,7 @@ $(function () {
     TODO:
     - timer entry modus
     - cookie (or localStorage)
-    - pluralización?
+    - pluralization: it works now but only in simple mode, and only in English
     - weeks support
     
     */
@@ -34,11 +34,11 @@ $(function () {
     // CONFIG
 
     let mainClass = '.countdown';
-    let OffsetLocation = -4; 
+    let OffsetLocation = -4;
 
     let runningClass = '.running'; //optinonal
     let endedClass = ".ended"; //optional
-    
+
     // END CONFIG
 
 
@@ -48,7 +48,6 @@ $(function () {
         index++;
         date = $(this).attr('data-Date');
         extraClass = 'd_' + index;
-
 
         $(this).addClass(extraClass); //add a class to recognize each counter
 
@@ -88,7 +87,10 @@ $(function () {
                 dif[index] = String(dif[index]).padStart(2, '0');
             });
 
+
             //replace text with or without extra class
+
+            //whith extras Class
             if ($('.' + extraClass + ' ' + runningClass + ' timer').length) {
                 $('.' + extraClass + ' ' + runningClass + ' timer .days').text(dif[0]);
                 $('.' + extraClass + ' ' + runningClass + ' timer .hours').text(dif[1]);
@@ -97,13 +99,17 @@ $(function () {
 
             } else {
 
-                //replace parts
+
+
+                //replace parts without extra Class
                 text = text.replace('(days)', dif[0]);
                 text = text.replace('(hours)', dif[1]);
                 text = text.replace('(minutes)', dif[2]);
                 text = text.replace('(seconds)', dif[3]);
                 $('.' + extraClass).text(text);
             }
+            pluralization(extraClass, dif);
+            
         }
     }
 
@@ -131,4 +137,31 @@ $(function () {
         }
         return [dd, hh, mm, ss];
     }
+    // Note this *is* JQuery, see below for JS solution instead
+    function replaceText(selector, text, newText, flags) {
+        var matcher = new RegExp(text, flags);
+        $(selector).each(function () {
+            var $this = $(this);
+            if (!$this.children().length)
+                $this.text($this.text().replace(matcher, newText));
+        });
+    }
+
+    function pluralization(extraClass, dif){
+            //pluralization
+            if (dif[0] == 1) replaceText('.' + extraClass, 'p_days', 'Day', 'g');
+            else replaceText('.' + extraClass, 'p_days', 'Days', 'g');
+
+            if (dif[1] == 1) replaceText('.' + extraClass, 'p_hours', 'Hour', 'g');
+            else replaceText('.' + extraClass, 'p_hours', 'Hours', 'g');
+
+            if (dif[2] == 1) replaceText('.' + extraClass, 'p_minutes', 'Minute', 'g');
+            else replaceText('.' + extraClass, 'p_minutes', 'Minutes', 'g');
+
+            if (dif[3] == 1) replaceText('.' + extraClass, 'p_seconds', 'Second', 'g');
+            else replaceText('.' + extraClass, 'p_seconds', 'Seconds', 'g');
+    }
+
 })
+
+
