@@ -10,16 +10,35 @@ $(function () {
     - timer entry modus
     - cookie (or localStorage)
     - pluralización?
-    - time zone
     - semanas?
     
     */
+    /*
+
+    CONFIG:
+    - mainClass
+    - Offset Location
+    - runningClass (optional)
+    - endedClass (optional)
+
+
+    offset value base on which location time zone you would like to set 
+    For India offset value +5.5,
+    New York offset value -4,
+    London offset value +1
+
+    All locations offset: https://en.wikipedia.org/wiki/List_of_UTC_time_offsets
+    */
+
 
     // CONFIG
 
     let mainClass = '.countdown';
+    let OffsetLocation = -4; 
+
     let runningClass = '.running'; //optinonal
     let endedClass = ".ended"; //optional
+    
     // END CONFIG
 
 
@@ -92,7 +111,12 @@ $(function () {
 
     function timeDistance(extraClass, date) {
         var date1 = new Date(date);
-        var date2 = Date.now();
+        let date2, d, utc;
+
+        d = new Date();
+        utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+        date2 = new Date(utc + (3600000 * OffsetLocation));
+
         var diff = date1.getTime() - date2;
         var msec = diff;
         var hh = Math.floor(msec / 1000 / 60 / 60);
