@@ -29,7 +29,7 @@ h1 {
 }
 
 .countdown.show h2 {
-  font-size: 50px;
+  font-size: 60px;
 }
 
 .countdown.show .running {
@@ -44,14 +44,41 @@ h1 {
 }
 
 .countdown.show .running timer {
-  font-size: 37px;
+  font-size: 55px;
   font-weight: 600;
-  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 1;
+  color: #8c0734;
+}
+
+.countdown.show .running timer .days,
+.countdown.show .running timer .hours,
+.countdown.show .running timer .minutes,
+.countdown.show .running timer .seconds {
+  width: 70px;
   text-align: left;
+  margin: 0 7px;
+}
+
+.countdown.show .running .labels {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+}
+
+.countdown.show .running .labels span {
+  width: 97px;
+  text-align: center;
+  margin: 0px 2px;
 }
 
 .countdown.show .running .text {
   font-size: 20px;
+  margin-top: 12px;
+  font-weight: 600;
 }
 
 .countdown.show .running button {

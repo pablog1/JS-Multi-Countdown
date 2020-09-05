@@ -26,9 +26,9 @@ h1 {
         margin: 22px;
         padding: 20px;
         border-radius: 30px;
-        
+
         h2 {
-            font-size: 50px;
+            font-size: 60px;
         }
         .running {
             display: flex;
@@ -36,13 +36,36 @@ h1 {
             justify-content: center;
 
             timer {
-                font-size: 37px;
+                font-size: 55px;
                 font-weight: 600;
-                width: 300px;
-                text-align: left;
+                display: flex;
+                line-height: 1;
+                color: #8c0734;
+                .days,
+                .hours,
+                .minutes,
+                .seconds {
+                    width: 70px;
+                    text-align: left;
+                    margin: 0 7px;
+                }
+            }
+            .labels{
+                display: flex;
+                //width: 296px;
+                font-size: 14px;
+                span{
+                    width: 97px;
+                    text-align: center;
+                    margin: 0px 2px;
+
+                }
+                
             }
             .text {
                 font-size: 20px;
+                margin-top: 12px;
+                font-weight: 600;
             }
             button {
                 border: none;
@@ -67,7 +90,7 @@ h1 {
             }
             button {
                 border: none;
-                background-color:#5a0000;
+                background-color: #5a0000;
                 color: white;
                 border-radius: 25px;
                 padding: 10px 20px;

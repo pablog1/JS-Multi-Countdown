@@ -69,16 +69,20 @@ $(function () {
                 dif[index] = String(dif[index]).padStart(2, '0');
             });
 
-            //replace parts
-            text = text.replace('(days)', dif[0]);
-            text = text.replace('(hours)', dif[1]);
-            text = text.replace('(minutes)', dif[2]);
-            text = text.replace('(seconds)', dif[3]);
-
             //replace text with or without extra class
             if ($('.' + extraClass + ' ' + runningClass + ' timer').length) {
-                $('.' + extraClass + ' ' + runningClass + ' timer').text(text);
+                $('.' + extraClass + ' ' + runningClass + ' timer .days').text(dif[0]);
+                $('.' + extraClass + ' ' + runningClass + ' timer .hours').text(dif[1]);
+                $('.' + extraClass + ' ' + runningClass + ' timer .minutes').text(dif[2]);
+                $('.' + extraClass + ' ' + runningClass + ' timer .seconds').text(dif[3]);
+
             } else {
+
+                //replace parts
+                text = text.replace('(days)', dif[0]);
+                text = text.replace('(hours)', dif[1]);
+                text = text.replace('(minutes)', dif[2]);
+                text = text.replace('(seconds)', dif[3]);
                 $('.' + extraClass).text(text);
             }
         }
