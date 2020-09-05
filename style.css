@@ -20,19 +20,82 @@ h1 {
   font-weight: 700;
 }
 
-#counters_1, #counters_2, #counters_3 {
+.countdown.show {
+  text-align: center;
+  background-color: #e4e4e4;
+  margin: 22px;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.countdown.show h2 {
+  font-size: 50px;
+}
+
+.countdown.show .running {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  padding: 33px;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.counter {
-  font-size: 44px;
+.countdown.show .running timer {
+  font-size: 37px;
   font-weight: 600;
-  color: #7b2314;
-  width: 152px;
+  width: 300px;
+  text-align: left;
+}
+
+.countdown.show .running .text {
+  font-size: 20px;
+}
+
+.countdown.show .running button {
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin: 10px;
+}
+
+.countdown.show .running .break {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  height: 0;
+}
+
+.countdown.show .ended {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.countdown.show .ended .text {
+  font-size: 20px;
+}
+
+.countdown.show .ended button {
+  border: none;
+  background-color: #5a0000;
+  color: white;
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin: 10px;
+}
+
+.countdown.show .ended .break {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  height: 0;
 }
 /*# sourceMappingURL=style.css.map */
