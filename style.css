@@ -33,6 +33,10 @@ body {
   font-weight: 700;
 }
 
+.simple-examples .countdown {
+  display: none;
+}
+
 .simple-examples .countdown.simple-bar {
   background-color: #af0b0b;
   margin: 20px;
@@ -127,9 +131,7 @@ body {
 }
 
 .countdown.show .ended, .countdown.hero_count .ended {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -ms-flex-flow: wrap;
       flex-flow: wrap;
   -webkit-box-pack: center;

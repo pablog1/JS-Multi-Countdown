@@ -87,14 +87,15 @@
                         Main features
                     </p>
                     <ul>
-                        <li>Multiple instances</li>
-                        <li>No init is needed</li>
+                        <li>Multiple instances on the same page</li>
+                        <li>No JS init is needed</li>
                         <li>Two entry modes, one for very simples countdowns, and other for cases where more CSS is
                             needed.
                         </li>
                         <li>Timer Mode</li>
                         <li>Pluralization</li>
                         <li>Time zones</li>
+                        <li>Configurable Zero Padding</li>
 
                     </ul>
                 </div>
@@ -118,6 +119,13 @@
                     <div class="countdown simple-bar fix" data-fixTime='{"Days": "3", "Hours": "2", "Minutes": "10"}'
                         data-endText="Offer ended">
                         (days) p_days, (hours) p_hours, (minutes) p_minutes and (seconds) p_seconds left!
+                    </div>
+
+                    <br>
+                    <p>Timer Mode with configurable Zero Padding </p>
+                    <div class="countdown simple-bar fix" data-fixTime='{"Days": "3", "Hours": "1", "Minutes": "10"}'
+                        data-endText="Offer ended" data-zeroPad='{"Days": "false"}'>
+                        (days) p_days - (hours):(minutes):(seconds) left!
                     </div>
 
                 </div>

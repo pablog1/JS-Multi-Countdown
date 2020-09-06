@@ -34,6 +34,7 @@ body {
 .simple-examples{
     @extend .description;
     .countdown {
+        display:none;
         &.simple-bar{
             background-color: #af0b0b;
             margin: 20px;
@@ -111,7 +112,7 @@ body {
             }
         }
         .ended {
-            display: flex;
+            display: none;
             flex-flow: wrap;
             justify-content: center;
 

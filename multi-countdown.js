@@ -13,7 +13,7 @@ $(function () {
                  (days), (hours), etc.. will be replaced and you can use
                 p_hours, p_minutes, etc.. for pluralization 
 
-    <div class="countdown simple-bar" data-Date='2021/9/5 17:12:0' data-endText="Ofder ended">
+    <div class="countdown simple-bar" data-Date='2021/9/5 17:12:0' data-endText="Offer ended">
             (days) p_days, (hours) p_hours, and (minutes) p_minutes left!
     </div>
 
@@ -52,6 +52,13 @@ $(function () {
             (days) p_days, (hours) p_hours, (minutes) p_minutes and (seconds) p_seconds left!
         </div>
 
+    *** ZERO-PAD ***
+    By default, Zero-PAdding is enabled. You can set it to false in a data attribute on this way:
+    
+    <div ......     data-zeroPad='{"Days": "false"}'>
+
+    Each variable (Days, Hours, Minutes and Seconds) can be set to false
+
 
     TODO:
     - cookie (or localStorage)
@@ -89,14 +96,16 @@ $(function () {
 
 
     //init
-    let date, fixTime, index = 0, extraClass, initText;
+    let date, fixTime, index = 0, extraClass, initText, zeroPad;
     $(mainClass).each(function () { //for each countdown instance
         index++;
         date = $(this).attr('data-Date');
         fixTime = $(this).attr('data-fixTime');
+        zeroPad = $(this).attr('data-zeroPad');
         extraClass = 'd_' + index;
 
         $(this).addClass(extraClass); //add a class to recognize each counter
+        $(this).css('display','block'); //allow to start hidding the class to avoid a bad effect until js is loading
 
         if (fixTime != undefined) date = getFixDate(fixTime);
 
@@ -111,14 +120,14 @@ $(function () {
         $('.' + extraClass + ' ' + endedClass).css('display', 'none');
 
         //call main function
-        dateReplace(extraClass, date, fixTime, initText); //prevent delay for the first time
-        setInterval(dateReplace, 1000, extraClass, date, fixTime, initText);
+        dateReplace(extraClass, date, fixTime, initText, zeroPad); //prevent delay for the first time
+        setInterval(dateReplace, 1000, extraClass, date, fixTime, initText, zeroPad);
     });
 
-    function dateReplace(extraClass, date, fixTime, initText) {
+    function dateReplace(extraClass, date, fixTime, initText, zeroPad) {
         let dif = timeDistance(date, fixTime);
         let text = initText;
-
+        let zeroPadArr = [];
         if (dif[0] < 0 || dif[1] < 0 || dif[2] < 0 || dif[3] < 0) {
             //countdown ended
             let endText = $('.' + extraClass).attr('data-endText');
@@ -131,11 +140,13 @@ $(function () {
 
         } else {
 
-            //Add a 0 if necesary
-            dif.forEach(function (item, index) {
-                dif[index] = String(dif[index]).padStart(2, '0');
-            });
+            //Zero-pad
+           if(zeroPad != undefined) zeroPadArr = JSON.parse(zeroPad);
 
+            if (zeroPadArr['Days'] != "false") dif[0] = String(dif[0]).padStart(2, '0');
+            if (zeroPadArr['Hours'] != "false") dif[1] = String(dif[1]).padStart(2, '0');
+            if (zeroPadArr['Minutes'] != "false") dif[2] = String(dif[2]).padStart(2, '0');
+            if (zeroPadArr['Seconds'] != "false") dif[3] = String(dif[3]).padStart(2, '0');
 
             //replace text with or without extra class
 
