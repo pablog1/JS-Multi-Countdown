@@ -18,27 +18,29 @@ body {
 
 .hero {
   color: white;
+  padding: 15px;
 }
 
-.description {
-  background-color: #6a5af3;
-  padding: 15px;
-  margin: 30px 0;
-  border-radius: 15px;
+.hero h3 {
   color: white;
 }
 
-.description p {
+.description, .simple-examples {
+  margin-top: 15px;
+}
+
+.description p, .simple-examples p {
   font-weight: 700;
 }
 
-.countdown.simple-bar {
-  background-color: #9cdcac;
+.simple-examples .countdown.simple-bar {
+  background-color: #af0b0b;
   margin: 20px;
   padding: 3px 21px;
   border-radius: 10px;
   text-align: center;
   font-weight: 700;
+  color: white;
 }
 
 .countdown.show, .countdown.hero_count {

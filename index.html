@@ -39,14 +39,14 @@
         </div>
         <div class="container-fluid young-passion-gradient">
             <div class="container hero">
-                <div class="row p-4">
+                <div class="row">
                     <div class="col">
                         <h3>Multi Countdown <br>JS /JQuery Script</h3>
                         <p>Simple JQuery plugin for all your countdown requirements.</p>
                         <p>Really very easy to implement and with all important features.</p>
                     </div>
                     <div class="col">
- 
+
 
                         <div class="countdown hero_count" data-Date='2020/12/10 13:37:53'>
                             <script>
@@ -81,33 +81,39 @@
             </div>
         </div>
         <div class="container">
-
-
-            <div class="description">
-                <p>
-                    Javascript Multi Contdown
-                </p>
-                <ul>
-                    <li>Multiple instances</li>
-                    <li>No init is needed</li>
-                    <li>Two entry modes, one for very simples countdowns, and other for cases where more CSS is
-                        needed.
-                    </li>
-                    <li>Pluralization</li>
-                    <li>Time zones</li>
-                </ul>
+            <div class="row">
+                <div class="col description">
+                    <p>
+                        Main features
+                    </p>
+                    <ul>
+                        <li>Multiple instances</li>
+                        <li>No init is needed</li>
+                        <li>Two entry modes, one for very simples countdowns, and other for cases where more CSS is
+                            needed.
+                        </li>
+                        <li>Pluralization</li>
+                        <li>Time zones</li>
+                    </ul>
+                </div>
+                <div class="col simple-examples">
+                    <p>Simple Examples</p>
+                    <div class="countdown simple-bar test_2" data-Date='2021/9/15 17:12:0' data-endText="Ofder ended">
+                        (days) p_days, (hours) p_hours, and (minutes) p_minutes left!
+                    </div>
+                    <script>
+                        $('.test_2').attr('data-date', dateText);
+                    </script>
+        
+                    <div class="countdown simple-bar" data-Date='2019/9/5 17:12:0' data-endText="Offer ended">
+                        (days) p_days, (hours) p_hours, and (minutes) p_minutes left!
+                    </div>
+                </div>
             </div>
 
-            <div class="countdown simple-bar test_2" data-Date='2021/9/15 17:12:0' data-endText="Ofder ended">
-                (days) p_days, (hours) p_hours, and (minutes) p_minutes left!
-            </div>
-            <script>
-                $('.test_2').attr('data-date', dateText);
-            </script>
+       
 
-            <div class="countdown simple-bar" data-Date='2019/9/5 17:12:0' data-endText="Offer ended">
-                (days) p_days, (hours) p_hours, and (minutes) p_minutes left!
-            </div>
+    
 
             <div class="countdown show test_3" data-Date='2020/12/10 13:37:53'>
                 <script>
