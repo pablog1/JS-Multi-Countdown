@@ -44,15 +44,22 @@ $(function () {
     On this way, the "ended" class will be visible when the countdown is ready and you have a lot of 
     control over the content and the layout.
 
+    *** TIMER Mode ***
+
+    On the timer mode, you have to enter the data in JSON format such in this example
+
+        <div class="countdown simple-bar fix" data-fixTime = '{"Days": "3", "Hours": "2", "Minutes": "10"}' data-endText="Offer ended">
+            (days) p_days, (hours) p_hours, (minutes) p_minutes and (seconds) p_seconds left!
+        </div>
+
 
     TODO:
-    - timer entry modus
     - cookie (or localStorage)
     - pluralization: it works now but only in simple mode, and only in English
     - weeks support
+    - prevent errors with false configs
     
-    */
-    /*
+ 
 
     CONFIG:
     - mainClass
@@ -82,13 +89,16 @@ $(function () {
 
 
     //init
-    let date, index = 0, extraClass, initText;
+    let date, fixTime, index = 0, extraClass, initText;
     $(mainClass).each(function () { //for each countdown instance
         index++;
         date = $(this).attr('data-Date');
+        fixTime = $(this).attr('data-fixTime');
         extraClass = 'd_' + index;
 
         $(this).addClass(extraClass); //add a class to recognize each counter
+
+        if (fixTime != undefined) date = getFixDate(fixTime);
 
         //get init text with or whitout an extra Class
         if ($('.' + extraClass + ' ' + runningClass + ' timer').length) {
@@ -101,12 +111,12 @@ $(function () {
         $('.' + extraClass + ' ' + endedClass).css('display', 'none');
 
         //call main function
-        dateReplace(extraClass, date, initText); //prevent delay for the first time
-        setInterval(dateReplace, 1000, extraClass, date, initText);
+        dateReplace(extraClass, date, fixTime, initText); //prevent delay for the first time
+        setInterval(dateReplace, 1000, extraClass, date, fixTime, initText);
     });
 
-    function dateReplace(extraClass, date, initText) {
-        let dif = timeDistance(extraClass, date);
+    function dateReplace(extraClass, date, fixTime, initText) {
+        let dif = timeDistance(date, fixTime);
         let text = initText;
 
         if (dif[0] < 0 || dif[1] < 0 || dif[2] < 0 || dif[3] < 0) {
@@ -138,8 +148,6 @@ $(function () {
 
             } else {
 
-
-
                 //replace parts without extra Class
                 text = text.replace('(days)', dif[0]);
                 text = text.replace('(hours)', dif[1]);
@@ -148,19 +156,18 @@ $(function () {
                 $('.' + extraClass).text(text);
             }
             pluralization(extraClass, dif);
-            
+
         }
     }
 
-
-
-    function timeDistance(extraClass, date) {
+    function timeDistance(date, fixTime) {
         var date1 = new Date(date);
         let date2, d, utc;
 
         d = new Date();
         utc = d.getTime() + (d.getTimezoneOffset() * 60000);
-        date2 = new Date(utc + (3600000 * OffsetLocation));
+        if (fixTime != undefined) date2 = new Date;
+        else date2 = new Date(utc + (3600000 * OffsetLocation));
 
         var diff = date1.getTime() - date2;
         var msec = diff;
@@ -176,6 +183,22 @@ $(function () {
         }
         return [dd, hh, mm, ss];
     }
+
+    function getFixDate(fixTime) {
+        let getFixTimeDate = 0;
+
+        var fixTimeDate = JSON.parse($('.' + extraClass).attr('data-fixTime'));
+        if (fixTimeDate['Days'] != undefined) { getFixTimeDate += +fixTimeDate['Days'] * 60 * 24; }
+        if (fixTimeDate['Hours'] != undefined) { getFixTimeDate += +fixTimeDate['Hours'] * 60; }
+        if (fixTimeDate['Minutes'] != undefined) getFixTimeDate += +fixTimeDate['Minutes'];
+
+        var now = new Date();
+        now.setMinutes(now.getMinutes() + getFixTimeDate); // timestamp
+        date = new Date(now); // Date object
+
+        return date;
+    }
+
     // Note this *is* JQuery, see below for JS solution instead
     function replaceText(selector, text, newText, flags) {
         var matcher = new RegExp(text, flags);
@@ -186,21 +209,19 @@ $(function () {
         });
     }
 
-    function pluralization(extraClass, dif){
-            //pluralization
-            if (dif[0] == 1) replaceText('.' + extraClass, 'p_days', 'Day', 'g');
-            else replaceText('.' + extraClass, 'p_days', 'Days', 'g');
+    function pluralization(extraClass, dif) {
+        //pluralization
+        if (dif[0] == 1) replaceText('.' + extraClass, 'p_days', 'Day', 'g');
+        else replaceText('.' + extraClass, 'p_days', 'Days', 'g');
 
-            if (dif[1] == 1) replaceText('.' + extraClass, 'p_hours', 'Hour', 'g');
-            else replaceText('.' + extraClass, 'p_hours', 'Hours', 'g');
+        if (dif[1] == 1) replaceText('.' + extraClass, 'p_hours', 'Hour', 'g');
+        else replaceText('.' + extraClass, 'p_hours', 'Hours', 'g');
 
-            if (dif[2] == 1) replaceText('.' + extraClass, 'p_minutes', 'Minute', 'g');
-            else replaceText('.' + extraClass, 'p_minutes', 'Minutes', 'g');
+        if (dif[2] == 1) replaceText('.' + extraClass, 'p_minutes', 'Minute', 'g');
+        else replaceText('.' + extraClass, 'p_minutes', 'Minutes', 'g');
 
-            if (dif[3] == 1) replaceText('.' + extraClass, 'p_seconds', 'Second', 'g');
-            else replaceText('.' + extraClass, 'p_seconds', 'Seconds', 'g');
+        if (dif[3] == 1) replaceText('.' + extraClass, 'p_seconds', 'Second', 'g');
+        else replaceText('.' + extraClass, 'p_seconds', 'Seconds', 'g');
     }
 
 })
-
-

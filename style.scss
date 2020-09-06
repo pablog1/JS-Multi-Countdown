@@ -4,10 +4,10 @@ body {
 }
 
 .purple-gradient {
-    background: linear-gradient(40deg,#ff6ec4,#7873f5) !important;
+    background: linear-gradient(40deg,#ff6ec4,#7873f5);
 }
 .young-passion-gradient {
-    background: linear-gradient(40deg,#b12a5b,#ff8177) !important;
+    background: linear-gradient(40deg,#b12a5b,#ff8177);
 }
 .title h1 {
     text-align: left;
@@ -42,6 +42,9 @@ body {
             text-align: center;
             font-weight: 700;
             color: white;
+        }
+        &.fix{
+            font-size: 14px;
         }
     }
 }
