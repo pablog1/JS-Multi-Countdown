@@ -166,6 +166,9 @@ body {
                 span {
                     width: 95px;
                     margin: 0px 3px 0px 0px;
+                    @media (max-width: 480px) {
+                            width: 69px;
+                    }
                 }
             }
         }
