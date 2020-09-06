@@ -186,6 +186,8 @@ body {
 
 .countdown.hero_count h2 {
   font-size: 40px;
+  color: #b3b3b3;
+  font-size: 33px;
 }
 
 .countdown.hero_count .running timer {
