@@ -5,6 +5,45 @@ $(function () {
     // Countdown
 
     /* Usage example
+    There are two ways to use this script. On is better for simple needs such a topbar. 
+    And the other one is good if you need to display more elements and have more control 
+    over the CSS
+
+    **** SIMPLE MODE ****: Just set a main Class and the content within the data attributes.
+                 (days), (hours), etc.. will be replaced and you can use
+                p_hours, p_minutes, etc.. for pluralization 
+
+    <div class="countdown simple-bar" data-Date='2021/9/5 17:12:0' data-endText="Ofder ended">
+            (days) p_days, (hours) p_hours, and (minutes) p_minutes left!
+    </div>
+
+    **** EXTENDED MODE: ****
+            <div class="countdown show" data-Date='2020/12/10 17:37:53'>
+            <h2>Live with  Madonna</h2>
+            <div class="running">
+                <timer>
+                  <span class = "days"></span>:<span class = "hours"></span>:<span class = "minutes"></span>:<span class = "seconds"></span>
+                </timer>
+                <div class = "break"></div>
+                <div class = "labels"><span>Days</span><span>Hours</span><span>Minutes</span><span>Seconds</span></div>
+                <div class = "break"></div>
+                <div class="text">until Concert begins</div>
+                <div class = "break"></div>
+                <button>Buy Ticket Now!</button>
+            </div>
+
+            <div class="ended">
+                <div class="text">Show is ended</div>
+                <div class = "break"></div>
+                <button>Suscribe for next event!</button>
+            </div>
+        </div>
+
+    On this way, you have to setup a main Class, and the end Date in the data attributes.
+    Then, you need to use the classes "running" and "ended" (you can change the names) and the element <timer>
+    On this way, the "ended" class will be visible when the countdown is ready and you have a lot of 
+    control over the content and the layout.
+
 
     TODO:
     - timer entry modus
