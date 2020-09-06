@@ -4,23 +4,22 @@ body {
 }
 
 .purple-gradient {
-    background: linear-gradient(40deg,#ff6ec4,#7873f5);
+    background: linear-gradient(40deg, #ff6ec4, #7873f5);
 }
 .young-passion-gradient {
-    background: linear-gradient(40deg,#b12a5b,#ff8177);
+    background: linear-gradient(40deg, #b12a5b, #ff8177);
 }
 .title h1 {
     text-align: left;
     color: #202020;
 }
 
-.hero{
-    color:white;
+.hero {
+    color: white;
     padding: 15px;
-    h3{
+    h3 {
         color: white;
     }
-
 }
 
 .description {
@@ -31,11 +30,11 @@ body {
     }
 }
 
-.simple-examples{
+.simple-examples {
     @extend .description;
     .countdown {
-        display:none;
-        &.simple-bar{
+        display: none;
+        &.simple-bar {
             background-color: #af0b0b;
             margin: 20px;
             padding: 3px 21px;
@@ -44,7 +43,7 @@ body {
             font-weight: 700;
             color: white;
         }
-        &.fix{
+        &.fix {
             font-size: 14px;
         }
     }
@@ -80,18 +79,30 @@ body {
                     text-align: left;
                     margin: 0 7px;
                 }
+                @media (max-width: 480px) {
+                    font-size: 40px;
+                    .days,
+                    .hours,
+                    .minutes,
+                    .seconds {
+                        width: 49px;
+                    }
+                }
             }
-            .labels{
+            .labels {
                 display: flex;
                 //width: 296px;
                 font-size: 14px;
-                span{
+                span {
                     width: 97px;
                     text-align: center;
                     margin: 0px 2px;
-
                 }
-                
+                @media (max-width: 480px) {
+                    span {
+                        width: 69px;
+                    }
+                }
             }
             .text {
                 font-size: 20px;
@@ -134,7 +145,7 @@ body {
         }
     }
 
-    &.hero_count{
+    &.hero_count {
         @extend .show;
         background-color: rgb(109, 3, 3);
         margin: 0 10px;
@@ -145,19 +156,18 @@ body {
             timer {
                 color: #e2e2e2;
             }
-            button{
-                background-color:#af0b0b;
-                a{
-                    color:white
+            button {
+                background-color: #af0b0b;
+                a {
+                    color: white;
                 }
             }
-            .labels{
-                span{
+            .labels {
+                span {
                     width: 95px;
                     margin: 0px 3px 0px 0px;
                 }
             }
         }
-        
     }
 }

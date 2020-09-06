@@ -96,6 +96,21 @@ body {
   margin: 0 7px;
 }
 
+@media (max-width: 480px) {
+  .countdown.show .running timer, .countdown.hero_count .running timer {
+    font-size: 40px;
+  }
+  .countdown.show .running timer .days, .countdown.hero_count .running timer .days,
+  .countdown.show .running timer .hours,
+  .countdown.hero_count .running timer .hours,
+  .countdown.show .running timer .minutes,
+  .countdown.hero_count .running timer .minutes,
+  .countdown.show .running timer .seconds,
+  .countdown.hero_count .running timer .seconds {
+    width: 49px;
+  }
+}
+
 .countdown.show .running .labels, .countdown.hero_count .running .labels {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -107,6 +122,12 @@ body {
   width: 97px;
   text-align: center;
   margin: 0px 2px;
+}
+
+@media (max-width: 480px) {
+  .countdown.show .running .labels span, .countdown.hero_count .running .labels span {
+    width: 69px;
+  }
 }
 
 .countdown.show .running .text, .countdown.hero_count .running .text {
