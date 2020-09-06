@@ -1,11 +1,24 @@
 body {
     background-color: #f1f1f1;
-    padding-top: 20px;
+    padding-top: 0px;
 }
 
-h1 {
-    text-align: center;
-    color: #39317d;
+.purple-gradient {
+    background: linear-gradient(40deg,#ff6ec4,#7873f5) !important;
+}
+.young-passion-gradient {
+    background: linear-gradient(40deg,#b12a5b,#ff8177) !important;
+}
+.title h1 {
+    text-align: left;
+    color: #202020;
+}
+
+.hero{
+    color:white;
+    h3{
+        
+    }
 }
 
 .description {
@@ -109,5 +122,29 @@ h1 {
                 height: 0;
             }
         }
+    }
+
+    &.hero_count{
+        @extend .show;
+        background-color: rgb(109, 3, 3);
+        margin: 0 10px;
+        h2 {
+            font-size: 40px;
+        }
+        .running {
+            timer {
+                color: #e2e2e2;
+            }
+            button{
+                background-color:#af0b0b
+            }
+            .labels{
+                span{
+                    width: 95px;
+                    margin: 0px 3px 0px 0px;
+                }
+            }
+        }
+        
     }
 }

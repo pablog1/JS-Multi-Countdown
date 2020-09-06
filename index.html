@@ -15,79 +15,147 @@
         crossorigin="anonymous"></script>
    -->
     <link href="style.css" rel="stylesheet">
+
+
     <script type="text/javascript" src="multi-countdown.js"></script>
+
+    <script>
+        /* Only for test proposal */
+        var date = new Date(); // Now
+        date.setDate(date.getDate() + 30); // Set now + 30 days as the new date
+        const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
+        const mo = new Intl.DateTimeFormat('en', { month: 'numeric' }).format(date);
+        const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
+        const dateText = ye + '/' + mo + '/' + da;
+    </script>
 </head>
 
 <body>
 
 
-    <main role="main" class="container">
-
-        <h1>Multi Contdown</h1>
-
-        <div class="description">
-            <p>
-                Javascript Multi Contdown
-            </p>
-            <ul>
-                <li>Multiple instances</li>
-                <li>No init is needed</li>
-                <li>Two entry modes, one for very simples countdowns, and other for cases where more CSS is needed. </li>
-                <li>Pluralization</li>
-                <li>Time zones</li>
-            </ul>
+    <main>
+        <div class="container title">
+            <h1>Countdown</h1>
         </div>
+        <div class="container-fluid young-passion-gradient">
+            <div class="container hero">
+                <div class="row p-4">
+                    <div class="col">
+                        <h3>Multi Countdown <br>JS /JQuery Script</h3>
+                        <p>Simple JQuery plugin for all your countdown requirements.</p>
+                        <p>Really very easy to implement and with all important features.</p>
+                    </div>
+                    <div class="col">
+ 
 
-        <div class="countdown simple-bar" data-Date='2021/9/15 17:12:0' data-endText="Ofder ended">
-            (days) p_days, (hours) p_hours, and (minutes) p_minutes left!
-        </div>
+                        <div class="countdown hero_count" data-Date='2020/12/10 13:37:53'>
+                            <script>
+                                $('.hero_count').attr('data-date', dateText);
+                            </script>
+                            <h2>Only few days</h2>
+                            <div class="running">
+                                <timer>
+                                    <span class="days"></span>:<span class="hours"></span>:<span
+                                        class="minutes"></span>:<span class="seconds"></span>
+                                </timer>
+                                <div class="break"></div>
+                                <div class="labels">
+                                    <span>Days</span><span>Hours</span><span>Minutes</span><span>Seconds</span>
+                                </div>
+                                <div class="break"></div>
+                                <div class="text">you will love it</div>
+                                <div class="break"></div>
+                                <button>Download Now!</button>
+                            </div>
 
-        <div class="countdown simple-bar" data-Date='2019/9/5 17:12:0' data-endText="Offer ended">
-            (days) p_days, (hours) p_hours, and (minutes) p_minutes left!
-        </div>
+                            <div class="ended">
+                                <div class="text">Time is ended</div>
+                                <div class="break"></div>
+                                <button>Suscribe for next event!</button>
+                            </div>
+                        </div>
 
-        <div class="countdown show" data-Date='2020/12/10 13:37:53'>
-            <h2>Live with  Madonna</h2>
-            <div class="running">
-                <timer>
-                  <span class = "days"></span>:<span class = "hours"></span>:<span class = "minutes"></span>:<span class = "seconds"></span>
-                </timer>
-                <div class = "break"></div>
-                <div class = "labels"><span>Days</span><span>Hours</span><span>Minutes</span><span>Seconds</span></div>
-                <div class = "break"></div>
-                <div class="text">until Concert begins</div>
-                <div class = "break"></div>
-                <button>Buy Ticket Now!</button>
-            </div>
+                    </div>
+                </div>
 
-            <div class="ended">
-                <div class="text">Show is ended</div>
-                <div class = "break"></div>
-                <button>Suscribe for next event!</button>
-            </div>
-        </div>
-        <div class="countdown show" data-Date='2020/7/20 23:33:53'>
-            <h2>Show en vivo con Madonna</h2>
-            <div class="running">
-                <timer>
-                  Only (days):(hours):(minutes):(seconds)
-                </timer>
-                <div class = "break"></div>
-                <div class="text">until Concert begins</div>
-                <div class = "break"></div>
-                <button>Buy Ticket Now!</button>
-            </div>
-
-            <div class="ended">
-                <div class="text">Show is ended</div>
-                <div class = "break"></div>
-                <button>Suscribe for next event!</button>
             </div>
         </div>
-        <hr>
-        <hr>
+        <div class="container">
 
 
+            <div class="description">
+                <p>
+                    Javascript Multi Contdown
+                </p>
+                <ul>
+                    <li>Multiple instances</li>
+                    <li>No init is needed</li>
+                    <li>Two entry modes, one for very simples countdowns, and other for cases where more CSS is
+                        needed.
+                    </li>
+                    <li>Pluralization</li>
+                    <li>Time zones</li>
+                </ul>
+            </div>
+
+            <div class="countdown simple-bar test_2" data-Date='2021/9/15 17:12:0' data-endText="Ofder ended">
+                (days) p_days, (hours) p_hours, and (minutes) p_minutes left!
+            </div>
+            <script>
+                $('.test_2').attr('data-date', dateText);
+            </script>
+
+            <div class="countdown simple-bar" data-Date='2019/9/5 17:12:0' data-endText="Offer ended">
+                (days) p_days, (hours) p_hours, and (minutes) p_minutes left!
+            </div>
+
+            <div class="countdown show test_3" data-Date='2020/12/10 13:37:53'>
+                <script>
+                    $('.test_3').attr('data-date', dateText);
+                </script>
+                <h2>Live with Madonna</h2>
+                <div class="running">
+                    <timer>
+                        <span class="days"></span>:<span class="hours"></span>:<span class="minutes"></span>:<span
+                            class="seconds"></span>
+                    </timer>
+                    <div class="break"></div>
+                    <div class="labels"><span>Days</span><span>Hours</span><span>Minutes</span><span>Seconds</span>
+                    </div>
+                    <div class="break"></div>
+                    <div class="text">until Concert begins</div>
+                    <div class="break"></div>
+                    <button>Buy Ticket Now!</button>
+                </div>
+
+                <div class="ended">
+                    <div class="text">Show is ended</div>
+                    <div class="break"></div>
+                    <button>Suscribe for next event!</button>
+                </div>
+            </div>
+            <div class="countdown show" data-Date='2020/7/20 23:33:53'>
+                <h2>Live with Madonna</h2>
+                <div class="running">
+                    <timer>
+                        Only (days):(hours):(minutes):(seconds)
+                    </timer>
+                    <div class="break"></div>
+                    <div class="text">until Concert begins</div>
+                    <div class="break"></div>
+                    <button>Buy Ticket Now!</button>
+                </div>
+
+                <div class="ended">
+                    <div class="text">Show is ended</div>
+                    <div class="break"></div>
+                    <button>Suscribe for next event!</button>
+                </div>
+            </div>
+            <hr>
+            <hr>
+
+        </div>
     </main>
 
 </body>
