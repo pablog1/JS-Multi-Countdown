@@ -175,6 +175,10 @@ body {
   background-color: #af0b0b;
 }
 
+.countdown.hero_count .running button a {
+  color: white;
+}
+
 .countdown.hero_count .running .labels span {
   width: 95px;
   margin: 0px 3px 0px 0px;
